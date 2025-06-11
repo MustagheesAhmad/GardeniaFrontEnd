@@ -4,6 +4,8 @@ import * as Yup from 'yup';
 import axios from 'axios';
 import { Formik } from 'formik';
 import { API_BASE_URL, AUTH_TOKEN } from '../config/constants';
+import backgroundImage from "../assets/backgroundImage.jpeg"
+const screenHeight = Dimensions.get('window').height;
 
 import {
   StyleSheet,
@@ -14,6 +16,8 @@ import {
   KeyboardAvoidingView,
   Platform,
   ScrollView,
+  ImageBackground,
+  Dimensions,
 } from 'react-native';
 import appStyle from '../style/login_start';
 import signUpStyle from '../style/SignUp';
@@ -78,7 +82,13 @@ const SignUp = () => {
       enabled
       style={{ flex: 1 }}>
       <ScrollView>
-        <View style={appStyle.body}>
+         <ImageBackground
+                source={backgroundImage}
+                style={{ flex: 1, width: '100%', height: screenHeight }}
+            resizeMode="cover"
+                
+                >
+        <View style={{flex:1,backgroundColor: 'rgba(60, 109, 51, 0.5)'}}>
           <View
             style={{
               height: responsiveHeight(25),
@@ -92,7 +102,7 @@ const SignUp = () => {
             </Text>
           </View>
 
-          <View style={styles.container}>
+          <View >
             <Formik
               initialValues={{
                 name: '',
@@ -189,6 +199,7 @@ const SignUp = () => {
             </TouchableOpacity>
           </View>
         </View>
+        </ImageBackground>
       </ScrollView>
     </KeyboardAvoidingView>
   );

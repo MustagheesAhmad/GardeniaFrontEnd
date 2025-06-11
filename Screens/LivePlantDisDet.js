@@ -54,7 +54,7 @@ const LivePlantDisDet = () => {
       try {
         setLoading(true);
         const response = await axios.post(
-          "http://192.168.18.136:1000/diagnose",
+          "http://192.168.100.122:1000/diagnose",
           formData,
           {
             headers: {
